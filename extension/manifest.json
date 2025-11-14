@@ -1,1 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Titans KDP Pro",
+  "version": "0.0.1",
+  "description": "KDP keyword & niche helper",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "permissions": ["storage","scripting","activeTab"],
+  "host_permissions": ["https://*.amazon.*/*","https://kdp.amazon.com/*"],
+  "background": { "service_worker": "background/background.js" },
+  "action": { "default_popup": "popup/popup.html" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.amazon.*/*","https://kdp.amazon.com/*"],
+      "js": ["content/content-script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
 
